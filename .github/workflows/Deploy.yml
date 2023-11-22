@@ -47,7 +47,7 @@ jobs:
       - name: Pull Vercel Environment Information
         run: vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
       - name: Deploy to Vercel
-        run: vercel deploy --image https://hub.docker.com/r/0028101996/app-security --port 8080
+        run: vercel deploy --token=${{ secrets.VERCEL_TOKEN }} --image https://hub.docker.com/r/0028101996/app-security --port 8080
 
   # Deploy-Preview:
   #   runs-on: ubuntu-latest
