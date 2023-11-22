@@ -32,7 +32,10 @@ jobs:
       - name: Build Project Artifacts DockerRun
         run: docker run -p 80:80 0028101996/app-security:latest node --inspect
       - name: Deploy Project Artifacts to Vercel
-        run: vercel deploy --token=${{ secrets.VERCEL_TOKEN }} --alias=app-security
+        run: vercel deploy --token=${{ secrets.VERCEL_TOKEN }} 
+      - name: Alias
+        run: vercel alias app-security test-app
+
 
   # deploy:
   #   needs: build
