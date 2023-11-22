@@ -50,7 +50,6 @@ jobs:
         run: |
           docker pull 0028101996/app-security:latest
           docker save -o app-security.tar 0028101996/app-security:latest
-          mv app-security.tar ~/work/test-app/test-app/
           cd ~/work/test-app/test-app/
       - name: Deploy to Vercel
         run: vercel --prod -t ${{ secrets.VERCEL_TOKEN }} app-security.tar
