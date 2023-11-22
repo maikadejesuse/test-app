@@ -54,7 +54,7 @@ jobs:
           ls
           cd ~/work/test-app/test-app/
       - name: Deploy to Vercel
-        run: vercel --prod -t ${{ secrets.VERCEL_TOKEN }} 0028101996/app-security:latest
+        run: vercel --prod -t ${{ secrets.VERCEL_TOKEN }} docker.io/0028101996/app-security:latest
 
   # Deploy-Preview:
   #   runs-on: ubuntu-latest
