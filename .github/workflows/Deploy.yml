@@ -52,7 +52,7 @@ jobs:
           docker save -o app-security.tar 0028101996/app-security:latest
           cd ~/work/test-app/test-app/
       - name: Deploy to Vercel
-        run: vercel --prod -t ${{ secrets.VERCEL_TOKEN }} app-security.tar
+        run: vercel --prod -t ${{ secrets.VERCEL_TOKEN }} 0028101996/app-security:latest
 
   # Deploy-Preview:
   #   runs-on: ubuntu-latest
