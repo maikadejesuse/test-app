@@ -34,7 +34,7 @@ jobs:
       - name: Deploy Project Artifacts to Vercel
         run: vercel deploy --token=${{ secrets.VERCEL_TOKEN }} 
       - name: Alias
-        run: vercel alias app-security test-app
+        run: vercel alias app-security test-app --token=${{ secrets.VERCEL_TOKEN }}
 
 
   # deploy:
