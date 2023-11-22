@@ -45,9 +45,20 @@ jobs:
       - name: Install Vercel CLI
         run: npm install --global vercel@latest
       - name: Pull Vercel Environment Information
-        run: vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
+        run: vercel new app-maika-security --token=${{ secrets.VERCEL_TOKEN }}
       - name: Deploy to Vercel
-        run: vercel --prod --token=${{ secrets.VERCEL_TOKEN }} --build-env DOCKER_IMAGE=0028101996/app-security:latest
+        run: vercel deploy --image https://hub.docker.com/r/0028101996/app-security --port 8080
+
+  # Deploy-Preview:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - name: Install Vercel CLI
+  #       run: npm install --global vercel@latest
+  #     - name: Pull Vercel Environment Information
+  #       run: vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
+  #     - name: Deploy to Vercel
+  #       run: vercel --prod --token=${{ secrets.VERCEL_TOKEN }} --build-env DOCKER_IMAGE=0028101996/app-security:latest
       # - name: Alias
       #   run: vercel alias app-security test-app --token=${{ secrets.VERCEL_TOKEN }}
 
