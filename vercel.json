@@ -1,12 +1,18 @@
 {
     "version": 2,
     "builds": [
-      { "src": "Dockerfile", "use": "@vercel/node" }
+      {
+        "src": "Dockerfile",
+        "use": "@vercel/node",
+        "config": {
+          "from": "${DOCKER_IMAGE}"
+        }
+      }
     ],
     "routes": [
       { "src": "/.*", "dest": ":8080" }
     ],
-    "git": {
-      "clone": "https"
-    }
-  }  
+     "git": {
+       "clone": "https"
+     }
+  }
