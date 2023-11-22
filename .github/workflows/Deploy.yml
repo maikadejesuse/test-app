@@ -46,8 +46,14 @@ jobs:
         run: npm install --global vercel@latest
       - name: Pull Vercel Environment Information
         run: vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
+      - name: Pull Vercel Environment Information
+        run: |
+          docker pull 0028101996/app-security:latest
+          docker save -o app-security.tar 0028101996/app-security:latest
+          mv app-security.tar ~/work/test-app/test-app/
+          cd ~/work/test-app/test-app/
       - name: Deploy to Vercel
-        run: vercel --prod -t ${{ secrets.VERCEL_TOKEN }} 0028101996/app-security:latest
+        run: vercel --prod -t ${{ secrets.VERCEL_TOKEN }} app-security.tar
 
   # Deploy-Preview:
   #   runs-on: ubuntu-latest
